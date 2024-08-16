@@ -5,6 +5,8 @@ import org.example.presonalprogecthabr.pages.CommonPage;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.extension.ExtendWith;
 
 
@@ -24,16 +26,30 @@ public class CommonTest extends BaseTest {
         cp.clickSettingsButton();
         cp.clickEnglishCheckBox();
         cp.clickSaveSettingsButton();
+
     }
 
 
     @Test
-    @DisplayName("By clicking on the 'English' element in the Login form - the language changes")
+    @DisplayName("#1. By clicking on the 'English' element in the Login form - the language changes")
     public void titleLogin() {
         cp.clickLoginButton();
         cp.clickChangeEnglishButton();
 
         assertEquals("Log in", cp.checkTitleLogin(), "Incorrect title");
+    }
+
+
+    @Test
+    @DisplayName("#2. In the Publications section the element of 'Sort by rating' is active")
+    public void SortingByRating() {
+
+        String text = "QA Automation";
+        cp.clickSearchButtonOnMainPage();
+        cp.inputTextIntoSearchField(text);
+        cp.clickDropDownList();
+
+        assertTrue(cp.checkSortByRatingButton(),"The 'Sort by rating' button is inactive");
     }
 
 }

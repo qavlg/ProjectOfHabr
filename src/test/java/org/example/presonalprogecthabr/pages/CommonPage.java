@@ -1,5 +1,6 @@
 package org.example.presonalprogecthabr.pages;
 
+import org.example.presonalprogecthabr.tests.CommonTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +15,7 @@ public class CommonPage {
 
     WebDriver driver;
 
-    @FindBy(css = "button[class='tm-header-user-menu__toggle']")
+    @FindBy(css = "svg[class='tm-svg-img tm-header-user-menu__icon tm-header-user-menu__icon_dark'] > use")
     private WebElement settingsButton;
 
     @FindBy(xpath = "(//div[@data-test-id='checkbox-labeled-input_ui'])[2]")
@@ -32,36 +33,51 @@ public class CommonPage {
     @FindBy(xpath = "//div[contains(text(),'Log in')]")
     private WebElement titleLogin;
 
+
+
+
+    @FindBy(css = "a[href='/en/search/']")
+    private WebElement searchButtonOnMainPage;
+
+    @FindBy(css = "input[placeholder='Search']")
+    private WebElement inputSearchField;
+
+    @FindBy(css = "span > svg[class='tm-svg-img tm-svg-icon']")
+    private WebElement secondarySearchButton;
+
+    @FindBy(css = "button[class='tm-navigation-dropdown__button tm-navigation-dropdown__button']")
+    private WebElement dropDownList;
+
+    @FindBy(xpath = "(//button[@class='tm-navigation-dropdown__option-button'])[3]")
+    private WebElement sortByRatingButton;
+
+
+
     public void clickSettingsButton() {
-        myWait(20).visible(settingsButton);
         settingsButton.click();
 
         LOG.info("Clicking on the 'Settings' button");
     }
 
     public void clickEnglishCheckBox() {
-        myWait(20).visible(englishCheckBox);
         englishCheckBox.click();
 
         LOG.info("Clicking on the 'English' check box");
     }
 
     public void clickLoginButton() {
-        myWait(20).visible(loginButton);
         loginButton.click();
 
         LOG.info("Clicking on the 'Login' button");
     }
 
     public void clickSaveSettingsButton() {
-        myWait(20).visible(saveSettingsButton);
         saveSettingsButton.click();
 
         LOG.info("Clicking on the 'Save preferences' button");
     }
 
     public void clickChangeEnglishButton() {
-        myWait(20).visible(changeEnglishButton);
         changeEnglishButton.click();
 
         LOG.info("Clicking on the 'English' button");
@@ -70,8 +86,43 @@ public class CommonPage {
     public String checkTitleLogin() {
         myWait(20).visible(titleLogin);
 
+        LOG.infoWithScreenshot("Checking if the title 'Log in' is correct");
         return titleLogin.getText();
     }
+
+
+
+
+    public void clickSearchButtonOnMainPage() {
+        searchButtonOnMainPage.click();
+
+        LOG.info("Clicking on the 'Search' button on the main page");
+    }
+
+    public void inputTextIntoSearchField(String text) {
+        inputSearchField.sendKeys(text);
+
+        myWait(20).clickable(secondarySearchButton);
+        secondarySearchButton.click();
+
+        LOG.info("Entering text into the search field");
+        LOG.info("Clicking on the secondary search button");
+    }
+
+    public void clickDropDownList() {
+        dropDownList.click();
+
+        LOG.info("Clicking on the drop-down list");
+    }
+
+    public Boolean checkSortByRatingButton() {
+        myWait(20).clickable(sortByRatingButton);
+
+        LOG.infoWithScreenshot("Checking if the sort by rating button is active");
+        return sortByRatingButton.isEnabled();
+    }
+
+
 
     public CommonPage(WebDriver driver) {
         this.driver = driver;

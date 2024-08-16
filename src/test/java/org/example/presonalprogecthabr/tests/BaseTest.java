@@ -24,7 +24,7 @@ public class BaseTest {
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
     }
 
     public static WebDriver getDriver() {
@@ -32,7 +32,7 @@ public class BaseTest {
     }
 
     public BaseTest() {
-        LOG = new AllureLogger(LoggerFactory.getLogger(this.getClass()));  // Инициализация экземпляра в конструкторе
+        LOG = new AllureLogger(LoggerFactory.getLogger(this.getClass()));
     }
 
     @AfterEach
