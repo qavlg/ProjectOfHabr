@@ -42,7 +42,7 @@ public class CommonTest extends BaseTest {
 
     @Test
     @DisplayName("#2. In the Publications section the element of 'Sort by rating' is active")
-    public void SortingByRating() {
+    public void sortingByRating() {
 
         String text = "QA Automation";
         cp.clickSearchButtonOnMainPage();
@@ -50,6 +50,17 @@ public class CommonTest extends BaseTest {
         cp.clickDropDownList();
 
         assertTrue(cp.checkSortByRatingButton(),"The 'Sort by rating' button is inactive");
+    }
+
+    @Test
+    @DisplayName("#3. In the Publications section the element copy RRS link is active")
+    public void copyRrsLink() {
+
+        String text = "QA Manual";
+        cp.clickSearchButtonOnMainPage();
+        cp.inputTextIntoSearchField(text);
+
+        assertTrue(cp.checkRrsCopyLick(),"The element copy RRS link is inactive");
     }
 
 }

@@ -42,7 +42,7 @@ public class CommonPage {
     @FindBy(css = "input[placeholder='Search']")
     private WebElement inputSearchField;
 
-    @FindBy(css = "span > svg[class='tm-svg-img tm-svg-icon']")
+    @FindBy(css = ".tm-svg-img.tm-svg-icon[height='16']")
     private WebElement secondarySearchButton;
 
     @FindBy(css = "button[class='tm-navigation-dropdown__button tm-navigation-dropdown__button']")
@@ -50,6 +50,13 @@ public class CommonPage {
 
     @FindBy(xpath = "(//button[@class='tm-navigation-dropdown__option-button'])[3]")
     private WebElement sortByRatingButton;
+
+
+
+
+    @FindBy(css = "button.tm-rss-button.tm-rss-button_default > span > svg > use")
+    private WebElement rrsCopyLick;
+
 
 
 
@@ -120,6 +127,15 @@ public class CommonPage {
 
         LOG.infoWithScreenshot("Checking if the sort by rating button is active");
         return sortByRatingButton.isEnabled();
+    }
+
+
+
+    public Boolean checkRrsCopyLick() {
+        myWait(20).clickable(rrsCopyLick);
+
+        LOG.infoWithScreenshot("Checking if the RRS Copy Lick element is active");
+        return rrsCopyLick.isEnabled();
     }
 
 
