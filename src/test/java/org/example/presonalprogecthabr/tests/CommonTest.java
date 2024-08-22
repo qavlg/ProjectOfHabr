@@ -63,4 +63,18 @@ public class CommonTest extends BaseTest {
         assertTrue(cp.checkRrsCopyLick(),"The element copy RRS link is inactive");
     }
 
+    @Test
+    @DisplayName("#4. By clicking 'Comments' element under the first post, occurring a transition to the comments tab")
+    public void tabCommentsIsAvailable() {
+
+        String text = "SimbirSoft";
+        cp.clickSearchButtonOnMainPage();
+        cp.inputTextIntoSearchField(text);
+        cp.clickCommentButtonUnderPost(0);
+
+        String currentUrl = getDriver().getCurrentUrl();
+        assertEquals("https://habr.com/en/companies/simbirsoft/news/537118/comments/",
+                currentUrl, "Current url is wrong");
+    }
+
 }

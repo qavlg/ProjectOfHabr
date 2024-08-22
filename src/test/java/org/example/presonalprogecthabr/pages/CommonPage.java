@@ -1,12 +1,17 @@
 package org.example.presonalprogecthabr.pages;
 
 import org.example.presonalprogecthabr.tests.CommonTest;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.LoggerFactory;
 import org.example.presonalprogecthabr.AllureLogger;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.example.presonalprogecthabr.Wait.myWait;
 
 public class CommonPage {
@@ -15,16 +20,16 @@ public class CommonPage {
 
     WebDriver driver;
 
-    @FindBy(css = "svg[class='tm-svg-img tm-header-user-menu__icon tm-header-user-menu__icon_dark'] > use")
+    @FindBy(css = "svg[class*='tm-svg-img tm-header-user-menu__icon tm-header-user-menu__icon_dark'] use")
     private WebElement settingsButton;
 
     @FindBy(xpath = "(//div[@data-test-id='checkbox-labeled-input_ui'])[2]")
     private WebElement englishCheckBox;
 
-    @FindBy(css = "button[class='btn btn_solid btn_large tm-page-settings-form__submit']")
+    @FindBy(css = "button[type='submit']")
     private WebElement saveSettingsButton;
 
-    @FindBy(css = "button[class='btn btn_solid btn_small tm-header-user-menu__login']")
+    @FindBy(css = "button[class*='tm-header-user-menu__login']")
     private WebElement loginButton;
 
     @FindBy(css = "[class='footer-links__link']:first-child")
@@ -57,6 +62,10 @@ public class CommonPage {
     @FindBy(css = "button.tm-rss-button.tm-rss-button_default > span > svg > use")
     private WebElement rrsCopyLick;
 
+
+
+    @FindBy(css = "svg[class*='counter-link__icon'] use")
+    private List<WebElement> commentButtonUnderPosts;
 
 
 
@@ -107,6 +116,7 @@ public class CommonPage {
     }
 
     public void inputTextIntoSearchField(String text) {
+        myWait(20).visible(inputSearchField);
         inputSearchField.sendKeys(text);
 
         myWait(20).clickable(secondarySearchButton);
@@ -136,6 +146,13 @@ public class CommonPage {
 
         LOG.infoWithScreenshot("Checking if the RRS Copy Lick element is active");
         return rrsCopyLick.isEnabled();
+    }
+
+
+    public void clickCommentButtonUnderPost(int num) {
+        commentButtonUnderPosts.get(num).click();
+
+        LOG.info("Clicking on the element on the page under number: " + num);
     }
 
 
