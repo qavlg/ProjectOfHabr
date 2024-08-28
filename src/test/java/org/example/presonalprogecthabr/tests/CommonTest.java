@@ -29,16 +29,15 @@ public class CommonTest extends BaseTest {
 
     }
 
-
     @Test
     @DisplayName("#1. By clicking on the 'English' element in the Login form - the language changes")
     public void titleLogin() {
         cp.clickLoginButton();
         cp.clickChangeEnglishButton();
 
-        assertEquals("Log in", cp.checkTitleLogin(), "Incorrect title");
+        assertEquals("Log in", cp.checkTitleLogin(),
+                "Incorrect title");
     }
-
 
     @Test
     @DisplayName("#2. In the Publications section the element of 'Sort by rating' is active")
@@ -49,7 +48,8 @@ public class CommonTest extends BaseTest {
         cp.inputTextIntoSearchField(text);
         cp.clickDropDownList();
 
-        assertTrue(cp.checkSortByRatingButton(),"The 'Sort by rating' button is inactive");
+        assertTrue(cp.checkSortByRatingButton(),
+                "The 'Sort by rating' button is inactive");
     }
 
     @Test
@@ -60,21 +60,35 @@ public class CommonTest extends BaseTest {
         cp.clickSearchButtonOnMainPage();
         cp.inputTextIntoSearchField(text);
 
-        assertTrue(cp.checkRrsCopyLick(),"The element copy RRS link is inactive");
+        assertTrue(cp.checkRrsCopyLick(),
+                "The element copy RRS link is inactive");
     }
 
     @Test
-    @DisplayName("#4. By clicking 'Comments' element under the first post, occurring a transition to the comments tab")
+    @DisplayName("#4. By clicking 'Read more' element under the first post opens the article")
     public void tabCommentsIsAvailable() {
 
         String text = "SimbirSoft";
         cp.clickSearchButtonOnMainPage();
         cp.inputTextIntoSearchField(text);
-        cp.clickCommentButtonUnderPost(0);
+        cp.clickReadMoreButton(0);
 
+        LOG.infoWithScreenshot("Check if the link in the article is active");
         String currentUrl = getDriver().getCurrentUrl();
-        assertEquals("https://habr.com/en/companies/simbirsoft/news/537118/comments/",
+        assertEquals("https://habr.com/en/companies/simbirsoft/news/537118/",
                 currentUrl, "Current url is wrong");
     }
+
+    @Test
+    @DisplayName("#5. In the information there is the title 'Sandox'")
+    public void titleSandbox() {
+        cp.clickHowBecomeAuthorButton();
+        cp.clickWaitingForInvitationElement();
+        cp.clickSandboxElement();
+
+        assertEquals("Sandox", cp.checkTitleSandbox(),
+                "Incorrect title");
+    }
+
 
 }

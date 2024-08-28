@@ -1,7 +1,5 @@
 package org.example.presonalprogecthabr.pages;
 
-import org.example.presonalprogecthabr.tests.CommonTest;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,7 +18,7 @@ public class CommonPage {
 
     WebDriver driver;
 
-    @FindBy(css = "svg[class*='tm-svg-img tm-header-user-menu__icon tm-header-user-menu__icon_dark'] use")
+    @FindBy(css = "body > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > button:nth-child(1) > svg:nth-child(1) > use:nth-child(2)")
     private WebElement settingsButton;
 
     @FindBy(xpath = "(//div[@data-test-id='checkbox-labeled-input_ui'])[2]")
@@ -38,9 +36,6 @@ public class CommonPage {
     @FindBy(xpath = "//div[contains(text(),'Log in')]")
     private WebElement titleLogin;
 
-
-
-
     @FindBy(css = "a[href='/en/search/']")
     private WebElement searchButtonOnMainPage;
 
@@ -56,106 +51,110 @@ public class CommonPage {
     @FindBy(xpath = "(//button[@class='tm-navigation-dropdown__option-button'])[3]")
     private WebElement sortByRatingButton;
 
-
-
-
     @FindBy(css = "button.tm-rss-button.tm-rss-button_default > span > svg > use")
     private WebElement rrsCopyLick;
 
+    @FindBy(css = "a[class='tm-article-snippet__readmore']")
+    private List<WebElement> readMoreButton;
 
+    @FindBy(css = "a[href='/en/sandbox/start/']")
+    private WebElement howBecomeAuthorButton;
 
-    @FindBy(css = "svg[class*='counter-link__icon'] use")
-    private List<WebElement> commentButtonUnderPosts;
+    @FindBy(xpath = "//a[contains(text(),'Waiting for invitation ')]")
+    private WebElement waitingForInvitationElement;
 
+    @FindBy(css = "a[href='/docs/help/sandbox/']")
+    private WebElement sandboxElement;
 
+    @FindBy(xpath = "//h2[contains(text(),'Sandox')]")
+    private WebElement titleSandbox;
 
     public void clickSettingsButton() {
         settingsButton.click();
-
-        LOG.info("Clicking on the 'Settings' button");
+        LOG.info("Click on the Settings button");
     }
 
     public void clickEnglishCheckBox() {
         englishCheckBox.click();
-
-        LOG.info("Clicking on the 'English' check box");
+        LOG.info("Click on the English check box");
     }
 
     public void clickLoginButton() {
         loginButton.click();
-
-        LOG.info("Clicking on the 'Login' button");
+        LOG.info("Click on the Login button");
     }
 
     public void clickSaveSettingsButton() {
         saveSettingsButton.click();
-
-        LOG.info("Clicking on the 'Save preferences' button");
+        LOG.info("Click on the Save preferences button");
     }
 
     public void clickChangeEnglishButton() {
         changeEnglishButton.click();
-
-        LOG.info("Clicking on the 'English' button");
+        LOG.info("Click on the English button");
     }
 
     public String checkTitleLogin() {
-        myWait(20).visible(titleLogin);
-
-        LOG.infoWithScreenshot("Checking if the title 'Log in' is correct");
+        myWait(5).visible(titleLogin);
+        LOG.infoWithScreenshot("Check if the title 'Log in' is correct");
         return titleLogin.getText();
     }
 
-
-
-
     public void clickSearchButtonOnMainPage() {
         searchButtonOnMainPage.click();
-
-        LOG.info("Clicking on the 'Search' button on the main page");
+        LOG.info("Click on the Search button on the main page");
     }
 
     public void inputTextIntoSearchField(String text) {
-        myWait(20).visible(inputSearchField);
         inputSearchField.sendKeys(text);
-
-        myWait(20).clickable(secondarySearchButton);
         secondarySearchButton.click();
-
-        LOG.info("Entering text into the search field");
-        LOG.info("Clicking on the secondary search button");
+        LOG.info("Enter text into the search field");
+        LOG.info("Click on the secondary search button");
     }
 
     public void clickDropDownList() {
         dropDownList.click();
-
-        LOG.info("Clicking on the drop-down list");
+        LOG.info("Click on the Drop-down list");
     }
 
     public Boolean checkSortByRatingButton() {
-        myWait(20).clickable(sortByRatingButton);
-
-        LOG.infoWithScreenshot("Checking if the sort by rating button is active");
+        LOG.infoWithScreenshot("Check if the sort by rating button is active");
         return sortByRatingButton.isEnabled();
     }
 
-
-
     public Boolean checkRrsCopyLick() {
-        myWait(20).clickable(rrsCopyLick);
-
-        LOG.infoWithScreenshot("Checking if the RRS Copy Lick element is active");
+        LOG.infoWithScreenshot("Check if the RRS Copy Lick element is active");
         return rrsCopyLick.isEnabled();
     }
 
-
-    public void clickCommentButtonUnderPost(int num) {
-        commentButtonUnderPosts.get(num).click();
-
-        LOG.info("Clicking on the element on the page under number: " + num);
+    public void clickReadMoreButton(int num) {
+        readMoreButton.get(num).click();
+        LOG.info("Click on the element on the page under number: " + num);
     }
 
 
+    public void clickHowBecomeAuthorButton() {
+        howBecomeAuthorButton.click();
+        LOG.info("Click on the How to become an author button");
+    }
+
+    public void clickWaitingForInvitationElement() {
+        waitingForInvitationElement.click();
+        LOG.info("Click on the Waiting for invitation element");
+    }
+
+    public void clickSandboxElement() {
+        sandboxElement.click();
+        LOG.info("Click on the Sandbox element");
+    }
+
+    public String checkTitleSandbox() {
+        List<String> tabs = new ArrayList<>(driver.getWindowHandles()); // когда открывается новая страница
+        driver.switchTo().window(tabs.get(1));
+        myWait(5).visible(titleSandbox);
+        LOG.infoWithScreenshot("Check if the title 'Sandbox' is correct");
+        return titleSandbox.getText();
+    }
 
     public CommonPage(WebDriver driver) {
         this.driver = driver;

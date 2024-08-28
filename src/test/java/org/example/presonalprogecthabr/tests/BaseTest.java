@@ -24,7 +24,7 @@ public class BaseTest {
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     public static WebDriver getDriver() {
