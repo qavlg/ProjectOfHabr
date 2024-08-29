@@ -11,7 +11,7 @@ import static org.example.presonalprogecthabr.Wait.myWait;
 
 public class PopSciPage {
 
-    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(CommonPage.class));
+    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(MainPage.class));
 
     WebDriver driver;
 

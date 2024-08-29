@@ -12,9 +12,9 @@ import java.util.List;
 
 import static org.example.presonalprogecthabr.Wait.myWait;
 
-public class CommonPage {
+public class MainPage {
 
-    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(CommonPage.class));
+    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(MainPage.class));
 
     WebDriver driver;
 
@@ -156,7 +156,7 @@ public class CommonPage {
         return titleSandbox.getText();
     }
 
-    public CommonPage(WebDriver driver) {
+    public MainPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

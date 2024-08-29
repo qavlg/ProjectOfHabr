@@ -1,7 +1,6 @@
 package org.example.presonalprogecthabr.tests;
 
 import org.example.presonalprogecthabr.Extension;
-import org.example.presonalprogecthabr.pages.CommonPage;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,16 +11,16 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(Extension.class)
 
-public class CommonTest extends BaseTest {
+public class MainPage extends BaseTest {
 
-    CommonPage cp;
+    org.example.presonalprogecthabr.pages.MainPage cp;
 
     @BeforeEach
     @Override
     public void setUp() {
         super.setUp();
         getDriver().get("https://habr.com/ru/feed/");
-        cp = new CommonPage(getDriver());
+        cp = new org.example.presonalprogecthabr.pages.MainPage(getDriver());
 
         cp.clickSettingsButton();
         cp.clickEnglishCheckBox();

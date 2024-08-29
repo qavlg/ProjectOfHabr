@@ -2,7 +2,7 @@ package org.example.presonalprogecthabr.tests;
 
 
 import org.example.presonalprogecthabr.Extension;
-import org.example.presonalprogecthabr.pages.CommonPage;
+import org.example.presonalprogecthabr.pages.MainPage;
 import org.example.presonalprogecthabr.pages.PopSciPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -17,14 +17,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class  PopSciTest extends BaseTest {
 
     PopSciPage psp;
-    CommonPage cp;
+    MainPage cp;
 
     @BeforeEach
     @Override
     public void setUp() {
         super.setUp();
         getDriver().get("https://habr.com/ru/feed/");
-        cp = new CommonPage(getDriver());
+        cp = new MainPage(getDriver());
         psp = new PopSciPage(getDriver());
 
         cp.clickSettingsButton();
