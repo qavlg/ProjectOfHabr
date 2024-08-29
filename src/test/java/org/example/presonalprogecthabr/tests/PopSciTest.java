@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(Extension.class)
@@ -26,24 +27,79 @@ public class  PopSciTest extends BaseTest {
         cp = new CommonPage(getDriver());
         psp = new PopSciPage(getDriver());
 
-
         cp.clickSettingsButton();
         cp.clickEnglishCheckBox();
         cp.clickSaveSettingsButton();
         psp.clickPopSciElement();
-
-
     }
 
     @Test
-    @DisplayName("#1. By clicking 'Read more' element under the first post opens the article")
-    public void tabCommentsIsAvailable() {
+    @DisplayName("#6. By clicking Network technologies element appears new page with title 'Network technologies'")
+    public void titleNetworkTechnologies() {
         psp.clickNetworkTechnologiesElement();
 
         assertEquals("Network technologies", psp.checkTitleNetworkTechnologies(),
                 "Incorrect title");
     }
 
+    @Test
+    @DisplayName("#7. By clicking Programming element appears new page with title 'Programming'")
+    public void titleProgramming() {
+        psp.clickProgrammingElement();
 
+        assertEquals("Programming", psp.checkTitleProgramming(),
+                "Incorrect title");
+    }
 
+    @Test
+    @DisplayName("#8. By clicking Programming element appears new page with title 'Programming' and the right link")
+    public void titleInformationSecurity() {
+        psp.clickInformationSecurityElement();
+
+        LOG.infoWithScreenshot("Check if the link in the 'Information Security' is correct");
+        String currentUrl = getDriver().getCurrentUrl();
+
+        assertAll("Check two conditions",
+                () -> assertEquals("Information Security", psp.checkTitleInformationSecurity(),
+                "Incorrect title"),
+                () -> assertEquals("https://habr.com/en/hubs/infosecurity/articles/",
+                currentUrl, "Current url is wrong")
+                );
+    }
+
+    @Test
+    @DisplayName("#9. ")
+    public void changePagesInAuthorSection() {
+        psp.clickAuthorElement();
+        psp.clickChangeSecondPageElement();
+        psp.clickChangeThirdPageElement();
+        psp.clickChangeFourthPageElement();
+        psp.clickChangeFifthPageElement();
+
+        LOG.infoWithScreenshot("Check if the link in the 'Information Security' is correct");
+        String currentUrl = getDriver().getCurrentUrl();
+
+        assertAll("Check two conditions",
+                () -> assertEquals("https://habr.com/en/hubs/infosecurity/articles/",
+                        currentUrl, "Current url is wrong"),
+                () -> assertEquals("https://habr.com/en/hubs/infosecurity/articles/",
+                        currentUrl, "Current url is wrong"),
+                () -> assertEquals("https://habr.com/en/hubs/infosecurity/articles/",
+                        currentUrl, "Current url is wrong"),
+                () -> assertEquals("https://habr.com/en/hubs/infosecurity/articles/",
+                        currentUrl, "Current url is wrong")
+        );
+    }
+
+    @Test
+    @DisplayName("#10. ")
+    public void nameOfDropDownList() {
+        psp.clickDropDownListButton();
+        psp.clickTopButton();
+        psp.clickAllTimeButton();
+        psp.clickApplyButton();
+
+        assertEquals("All time", psp.checkTitleBestOfAllTimeButton(),
+                "Incorrect title");
+    }
 }

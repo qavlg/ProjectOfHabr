@@ -66,7 +66,7 @@ public class CommonTest extends BaseTest {
 
     @Test
     @DisplayName("#4. By clicking 'Read more' element under the first post opens the article")
-    public void tabCommentsIsAvailable() {
+    public void readMoreIsAvailable() {
 
         String text = "SimbirSoft";
         cp.clickSearchButtonOnMainPage();

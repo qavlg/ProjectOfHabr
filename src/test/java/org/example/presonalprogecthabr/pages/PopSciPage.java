@@ -18,7 +18,7 @@ public class PopSciPage {
     @FindBy(css = "a[href='/en/flows/popsci/']")
     private WebElement popSciElement;
 
-    @FindBy(css = "a[href='/en/hubs/network_technologies/']")
+    @FindBy(xpath = "(//span[contains(text(),'Network technologies')])[1]")
     private WebElement networkTechnologiesElement;
 
     @FindBy(xpath = "//h1//span[contains(text(),'Network technologies')]")
@@ -109,15 +109,22 @@ public class PopSciPage {
         LOG.info("Click on the Author element");
     }
 
-    public void clickElementsForChangePage() {
+    public void clickChangeSecondPageElement() {
         changeSecondPageElement.click();
-        changeThirdPageElement.click();
-        changeFourthPageElement.click();
-        changeFifthPageElement.click();
-
         LOG.info("Flip the second page");
+    }
+    public void clickChangeThirdPageElement() {
+        changeThirdPageElement.click();
         LOG.info("Flip the third page");
+    }
+
+    public void clickChangeFourthPageElement() {
+        changeFourthPageElement.click();
         LOG.info("Flip the fourth page");
+    }
+
+    public void clickChangeFifthPageElement() {
+        changeFifthPageElement.click();
         LOG.info("Flip the fifth page");
     }
 
