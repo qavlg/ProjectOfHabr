@@ -52,11 +52,11 @@ public class  PopSciTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("#8. By clicking Programming element appears new page with title 'Programming' and the right link")
+    @DisplayName("#8. By clicking Information Security element appears new page with title 'Information Security' and the accurate link")
     public void titleInformationSecurity() {
         psp.clickInformationSecurityElement();
 
-        LOG.infoWithScreenshot("Check if the link in the 'Information Security' is correct");
+        LOG.infoWithScreenshot("Check if the link in the 'Information Security' page is correct");
         String currentUrl = getDriver().getCurrentUrl();
 
         assertAll("Check two conditions",
@@ -68,31 +68,37 @@ public class  PopSciTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("#9. ")
+    @DisplayName("#9. In the section Author all five pages are clickable")
     public void changePagesInAuthorSection() {
         psp.clickAuthorElement();
+
         psp.clickChangeSecondPageElement();
+        LOG.infoWithScreenshot("Check if the link in the second page is correct");
+        assertEquals("https://habr.com/en/flows/popsci/authors/page2/",
+                getDriver().getCurrentUrl(),
+                "Url on the second page is wrong");
+
         psp.clickChangeThirdPageElement();
+        LOG.infoWithScreenshot("Check if the link in the third page is correct");
+        assertEquals("https://habr.com/en/flows/popsci/authors/page3/",
+                getDriver().getCurrentUrl(),
+                "Url on the third page is wrong");
+
         psp.clickChangeFourthPageElement();
+        LOG.infoWithScreenshot("Check if the link in the fourth page is correct");
+        assertEquals("https://habr.com/en/flows/popsci/authors/page4/",
+                getDriver().getCurrentUrl(),
+                "Url on the fourth page is wrong");
+
         psp.clickChangeFifthPageElement();
-
-        LOG.infoWithScreenshot("Check if the link in the 'Information Security' is correct");
-        String currentUrl = getDriver().getCurrentUrl();
-
-        assertAll("Check two conditions",
-                () -> assertEquals("https://habr.com/en/flows/popsci/authors/page2/",
-                        currentUrl, "Current url is wrong"),
-                () -> assertEquals("https://habr.com/en/flows/popsci/authors/page3/",
-                        currentUrl, "Current url is wrong"),
-                () -> assertEquals("https://habr.com/en/flows/popsci/authors/page4/",
-                        currentUrl, "Current url is wrong"),
-                () -> assertEquals("https://habr.com/en/flows/popsci/authors/page5/",
-                        currentUrl, "Current url is wrong")
-        );
+        LOG.infoWithScreenshot("Check if the link in the fifth page is correct");
+        assertEquals("https://habr.com/en/flows/popsci/authors/page5/",
+                getDriver().getCurrentUrl(),
+                "Url on the fifth page is wrong");
     }
 
     @Test
-    @DisplayName("#10. ")
+    @DisplayName("#10. It is possible to sort the articles by Best of all time")
     public void nameOfDropDownList() {
         psp.clickDropDownListButton();
         psp.clickTopButton();
