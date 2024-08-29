@@ -5,7 +5,7 @@ These test-cases checks the Main page, the PopSci page.
 
 The project uses 21 Java version.
 
-In order to run the test is necessary input a command into the terminal:
+In order to run the tests is necessary input a command into the terminal:
 - **./mvnw test**  OR **mvn test**
 
 In order to run Allure is necessary input a command into the terminal:

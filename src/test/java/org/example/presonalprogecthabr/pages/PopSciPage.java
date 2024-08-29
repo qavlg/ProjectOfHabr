@@ -51,7 +51,7 @@ public class PopSciPage {
     @FindBy(css = "a[href='/en/flows/popsci/authors/page5/']:first-child")
     private WebElement changeFifthPageElement;
 
-    @FindBy(css = "button[class='tm-navigation-filters-spoiler__button']")
+    @FindBy(css = "button[data-test-id='nav-filters-button']")
     private WebElement dropDownListButton;
 
     @FindBy(xpath = "//button[contains(text(),'Top')]")
@@ -63,7 +63,7 @@ public class PopSciPage {
     @FindBy(css = "button[class='btn btn_solid btn_small tm-navigation-filters__apply']")
     private WebElement applyButton;
 
-    @FindBy(xpath = "//button[contains(text(),'All time')]")
+    @FindBy(xpath = "//button[contains(text(),'Best of all time')]")
     private WebElement nameOfElementBestOfAllTime;
 
     public void clickPopSciElement() {
@@ -145,6 +145,7 @@ public class PopSciPage {
 
     public void clickApplyButton() {
         applyButton.click();
+        driver.navigate().refresh();
         LOG.info("Click on the Apply button");
     }
 

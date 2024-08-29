@@ -80,13 +80,13 @@ public class  PopSciTest extends BaseTest {
         String currentUrl = getDriver().getCurrentUrl();
 
         assertAll("Check two conditions",
-                () -> assertEquals("https://habr.com/en/hubs/infosecurity/articles/",
+                () -> assertEquals("https://habr.com/en/flows/popsci/authors/page2/",
                         currentUrl, "Current url is wrong"),
-                () -> assertEquals("https://habr.com/en/hubs/infosecurity/articles/",
+                () -> assertEquals("https://habr.com/en/flows/popsci/authors/page3/",
                         currentUrl, "Current url is wrong"),
-                () -> assertEquals("https://habr.com/en/hubs/infosecurity/articles/",
+                () -> assertEquals("https://habr.com/en/flows/popsci/authors/page4/",
                         currentUrl, "Current url is wrong"),
-                () -> assertEquals("https://habr.com/en/hubs/infosecurity/articles/",
+                () -> assertEquals("https://habr.com/en/flows/popsci/authors/page5/",
                         currentUrl, "Current url is wrong")
         );
     }
@@ -99,7 +99,7 @@ public class  PopSciTest extends BaseTest {
         psp.clickAllTimeButton();
         psp.clickApplyButton();
 
-        assertEquals("All time", psp.checkTitleBestOfAllTimeButton(),
+        assertEquals("Best of all time", psp.checkTitleBestOfAllTimeButton(),
                 "Incorrect title");
     }
 }
