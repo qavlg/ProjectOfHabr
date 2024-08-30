@@ -35,8 +35,8 @@ public class BaseTest {
         LOG = new AllureLogger(LoggerFactory.getLogger(this.getClass()));
     }
 
-//    @AfterEach
-//    public void tearDown() {
-//        driver.quit();
-//    }
+    @AfterEach
+    public void tearDown() {
+        driver.quit();
+    }
 }
