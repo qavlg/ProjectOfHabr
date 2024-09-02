@@ -11,7 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(Extension.class)
 
-public class MainPage extends BaseTest {
+public class MainTest extends BaseTest {
 
     org.example.presonalprogecthabr.pages.MainPage cp;
 

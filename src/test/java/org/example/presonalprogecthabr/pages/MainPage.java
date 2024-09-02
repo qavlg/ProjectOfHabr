@@ -18,7 +18,7 @@ public class MainPage {
 
     WebDriver driver;
 
-    @FindBy(css = "body > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > button:nth-child(1) > svg:nth-child(1) > use:nth-child(2)")
+    @FindBy(css = "button > svg[class='tm-svg-img tm-header-user-menu__icon tm-header-user-menu__icon_dark']")
     private WebElement settingsButton;
 
     @FindBy(xpath = "(//div[@data-test-id='checkbox-labeled-input_ui'])[2]")
