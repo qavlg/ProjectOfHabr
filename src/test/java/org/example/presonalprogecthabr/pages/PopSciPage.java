@@ -15,9 +15,6 @@ public class PopSciPage {
 
     WebDriver driver;
 
-    @FindBy(css = "a[href='/en/flows/popsci/']")
-    private WebElement popSciElement;
-
     @FindBy(xpath = "(//span[contains(text(),'Network technologies')])[1]")
     private WebElement networkTechnologiesElement;
 
@@ -51,7 +48,7 @@ public class PopSciPage {
     @FindBy(css = "a[href='/en/flows/popsci/authors/page5/']:first-child")
     private WebElement changeFifthPageElement;
 
-    @FindBy(css = "button[data-test-id='nav-filters-button']")
+    @FindBy(css = "button[class*='tm-navigation-filters-spoiler__button']")
     private WebElement dropDownListButton;
 
     @FindBy(xpath = "//button[contains(text(),'Top')]")
@@ -65,11 +62,6 @@ public class PopSciPage {
 
     @FindBy(xpath = "//button[contains(text(),'Best of all time')]")
     private WebElement nameOfElementBestOfAllTime;
-
-    public void clickPopSciElement() {
-        popSciElement.click();
-        LOG.info("Click on the PopSci element");
-    }
 
     public void clickNetworkTechnologiesElement() {
         networkTechnologiesElement.click();

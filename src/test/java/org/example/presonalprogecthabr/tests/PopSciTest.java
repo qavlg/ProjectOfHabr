@@ -23,14 +23,11 @@ public class  PopSciTest extends BaseTest {
     @Override
     public void setUp() {
         super.setUp();
-        getDriver().get("https://habr.com/ru/feed/");
+        getDriver().get("https://habr.com/en/feed/");
         cp = new MainPage(getDriver());
-        psp = new PopSciPage(getDriver());
+        cp.clickPopSciElement();
 
-        cp.clickSettingsButton();
-        cp.clickEnglishCheckBox();
-        cp.clickSaveSettingsButton();
-        psp.clickPopSciElement();
+        psp = new PopSciPage(getDriver());
     }
 
     @Test

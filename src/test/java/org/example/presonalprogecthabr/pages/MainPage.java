@@ -18,7 +18,10 @@ public class MainPage {
 
     WebDriver driver;
 
-    @FindBy(css = "button > svg[class='tm-svg-img tm-header-user-menu__icon tm-header-user-menu__icon_dark']")
+    @FindBy(css = "a[href='/en/flows/popsci/']")
+    private WebElement popSciElement;
+
+    @FindBy(css = "button[data-test-id='user-menu-settings']")
     private WebElement settingsButton;
 
     @FindBy(xpath = "(//div[@data-test-id='checkbox-labeled-input_ui'])[2]")
@@ -68,6 +71,19 @@ public class MainPage {
 
     @FindBy(xpath = "//h2[contains(text(),'Sandox')]")
     private WebElement titleSandbox;
+
+    @FindBy(css = "a[data-test-id='main-menu-item']:nth-child(4)")
+    private WebElement adminElement;
+
+    public void clickPopSciElement() {
+        popSciElement.click();
+        LOG.info("Click on the PopSci element");
+    }
+
+    public void clickAdminElement() {
+        adminElement.click();
+        LOG.info("Click on the Admin element");
+    }
 
     public void clickSettingsButton() {
         settingsButton.click();
@@ -149,7 +165,7 @@ public class MainPage {
     }
 
     public String checkTitleSandbox() {
-        List<String> tabs = new ArrayList<>(driver.getWindowHandles()); // когда открывается новая страница
+        List<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
         myWait(5).visible(titleSandbox);
         LOG.infoWithScreenshot("Check if the title 'Sandbox' is correct");

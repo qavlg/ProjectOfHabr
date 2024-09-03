@@ -15,9 +15,6 @@ public class AdminPage {
 
     WebDriver driver;
 
-    @FindBy(css = "a[data-test-id='main-menu-item']:nth-child(4)")
-    private WebElement adminElement;
-
     @FindBy(css = "a[href='/en/flows/admin/hubs/']")
     private WebElement hubsElement;
 
@@ -42,7 +39,7 @@ public class AdminPage {
     @FindBy(css = "span > a[href='/en/flows/admin/']")
     private WebElement articlesElement;
 
-    @FindBy(css = "button[class*='spoiler__button']")
+    @FindBy(css = "button[class*='tm-navigation-filters-spoiler__button']")
     private WebElement dropDownListButton;
 
     @FindBy(xpath = "//button[contains(text(),'≥100')]")
@@ -61,11 +58,6 @@ public class AdminPage {
     private WebElement subscribersElement;
 
 
-    public void clickAdminElement() {
-        adminElement.click();
-        LOG.info("Click on the Admin element");
-    }
-
     public void clickHubsElement() {
         hubsElement.click();
         LOG.info("Click on the Hubs element");
@@ -77,7 +69,9 @@ public class AdminPage {
     }
 
     public void clickTitleElement() {
+        myWait(5).clickable(titleElement);
         titleElement.click();
+        driver.navigate().refresh();
         LOG.info("Click on the Title element");
     }
 
@@ -117,6 +111,7 @@ public class AdminPage {
     }
 
     public void clickDropDownListButton() {
+        myWait(5).clickable(dropDownListButton);
         dropDownListButton.click();
         LOG.info("Click on the Drop-down list button");
     }

@@ -23,12 +23,9 @@ public class AdminTest extends BaseTest {
         super.setUp();
         getDriver().get("https://habr.com/en/feed/");
         cp = new MainPage(getDriver());
-        ap = new AdminPage(getDriver());
+        cp.clickAdminElement();
 
-        cp.clickSettingsButton();
-        cp.clickEnglishCheckBox();
-        cp.clickSaveSettingsButton();
-        ap.clickAdminElement();
+        ap = new AdminPage(getDriver());
 
     }
     @Test
