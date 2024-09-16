@@ -1,6 +1,5 @@
 package org.example.presonalprogecthabr.tests;
 
-
 import org.example.presonalprogecthabr.Extension;
 import org.example.presonalprogecthabr.pages.MainPage;
 import org.example.presonalprogecthabr.pages.PopSciPage;
@@ -14,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(Extension.class)
 
-public class  PopSciTest extends BaseTest {
+public class PopSciTest extends BaseTest {
 
     PopSciPage psp;
     MainPage cp;
@@ -58,10 +57,10 @@ public class  PopSciTest extends BaseTest {
 
         assertAll("Check two conditions",
                 () -> assertEquals("Information Security", psp.checkTitleInformationSecurity(),
-                "Incorrect title"),
+                        "Incorrect title"),
                 () -> assertEquals("https://habr.com/en/hubs/infosecurity/articles/",
-                currentUrl, "Current url is wrong")
-                );
+                        currentUrl, "Current url is wrong")
+        );
     }
 
     @Test

@@ -105,6 +105,7 @@ public class PopSciPage {
         changeSecondPageElement.click();
         LOG.info("Flip the second page");
     }
+
     public void clickChangeThirdPageElement() {
         changeThirdPageElement.click();
         LOG.info("Flip the third page");
@@ -151,5 +152,4 @@ public class PopSciPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-
 }

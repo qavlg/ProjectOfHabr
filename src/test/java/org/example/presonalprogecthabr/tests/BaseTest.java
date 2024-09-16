@@ -1,6 +1,5 @@
 package org.example.presonalprogecthabr.tests;
 
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.example.presonalprogecthabr.AllureLogger;
 import org.junit.jupiter.api.AfterEach;
@@ -35,8 +34,8 @@ public class BaseTest {
         LOG = new AllureLogger(LoggerFactory.getLogger(this.getClass()));
     }
 
-//    @AfterEach
-//    public void tearDown() {
-//        driver.quit();
-//    }
+    @AfterEach
+    public void tearDown() {
+        driver.quit();
+    }
 }

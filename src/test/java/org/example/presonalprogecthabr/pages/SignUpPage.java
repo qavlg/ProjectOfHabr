@@ -65,7 +65,7 @@ public class SignUpPage {
     @FindBy(xpath = "//div[contains(text(),'You need to fill in this field')]")
     private WebElement textWithError;
 
-    @FindBy(css= "fieldset[class='form__fields']")
+    @FindBy(css = "fieldset[class='form__fields']")
     private WebElement outsideOfField;
 
     @FindBy(xpath = "//div[contains(text(),'Registration')]")
@@ -77,10 +77,9 @@ public class SignUpPage {
     }
 
     public void clickCheckBoxUserAgreement() throws InterruptedException {
-            JavascriptExecutor js = (JavascriptExecutor) getDriver();
-            js.executeScript("arguments[0].click();", checkBoxUserAgreement);
-            Thread.sleep(15000);
-
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("arguments[0].click();", checkBoxUserAgreement);
+        Thread.sleep(15000);
         LOG.info("Click on the check box 'User agreement'");
     }
 

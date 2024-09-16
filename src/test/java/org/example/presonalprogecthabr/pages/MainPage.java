@@ -1,11 +1,11 @@
 package org.example.presonalprogecthabr.pages;
 
+import org.example.presonalprogecthabr.AllureLogger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.LoggerFactory;
-import org.example.presonalprogecthabr.AllureLogger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -147,7 +147,6 @@ public class MainPage {
         readMoreButton.get(num).click();
         LOG.info("Click on the element on the page under number: " + num);
     }
-
 
     public void clickHowBecomeAuthorButton() {
         howBecomeAuthorButton.click();

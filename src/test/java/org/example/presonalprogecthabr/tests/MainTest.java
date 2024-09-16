@@ -1,13 +1,13 @@
 package org.example.presonalprogecthabr.tests;
 
 import org.example.presonalprogecthabr.Extension;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(Extension.class)
 
@@ -25,7 +25,6 @@ public class MainTest extends BaseTest {
         cp.clickSettingsButton();
         cp.clickEnglishCheckBox();
         cp.clickSaveSettingsButton();
-
     }
 
     @Test
@@ -88,6 +87,4 @@ public class MainTest extends BaseTest {
         assertEquals("Sandox", cp.checkTitleSandbox(),
                 "Incorrect title");
     }
-
-
 }

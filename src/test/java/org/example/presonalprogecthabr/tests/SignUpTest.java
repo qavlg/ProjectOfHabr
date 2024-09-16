@@ -2,7 +2,6 @@ package org.example.presonalprogecthabr.tests;
 
 import org.example.presonalprogecthabr.Extension;
 import org.example.presonalprogecthabr.pages.MainPage;
-import org.example.presonalprogecthabr.pages.PopSciPage;
 import org.example.presonalprogecthabr.pages.SignUpPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -63,17 +62,17 @@ public class SignUpTest extends BaseTest {
     public void titleInformationSecurity() {
 
         assertAll("Check six conditions",
-                () ->  assertTrue(sup.checkFacebookButton(),
+                () -> assertTrue(sup.checkFacebookButton(),
                         "The facebook button is inactive"),
-                () ->  assertTrue(sup.checkVkontakteButton(),
+                () -> assertTrue(sup.checkVkontakteButton(),
                         "The vkontakte button is inactive"),
-                () ->  assertTrue(sup.checkTwitterButton(),
+                () -> assertTrue(sup.checkTwitterButton(),
                         "The twitter button is inactive"),
-                () ->  assertTrue(sup.checkGitHubButton(),
+                () -> assertTrue(sup.checkGitHubButton(),
                         "The gitHub button is inactive"),
-                () ->  assertTrue(sup.checkLiveIidButton(),
+                () -> assertTrue(sup.checkLiveIidButton(),
                         "The liveIid button is inactive"),
-                () ->  assertTrue(sup.checkGoogleButton(),
+                () -> assertTrue(sup.checkGoogleButton(),
                         "The google button is inactive")
         );
 
@@ -84,7 +83,7 @@ public class SignUpTest extends BaseTest {
 
     @Test
     @DisplayName("#19. The text 'You need to fill in this field' will appear below 'Email', 'Username', 'Password' fields after deleting the data from the fields")
-    public void errorsUnderFields()  {
+    public void errorsUnderFields() {
         String email = "test@test.com";
         String username = "test1";
         String password = "test_test";
@@ -118,5 +117,4 @@ public class SignUpTest extends BaseTest {
         assertEquals("Registration", sup.checkTitleOfRegistration(),
                 "Incorrect the title");
     }
-
 }

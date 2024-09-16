@@ -1,11 +1,11 @@
 package org.example.presonalprogecthabr.tests;
 
-
 import org.example.presonalprogecthabr.Extension;
 import org.example.presonalprogecthabr.pages.AdminPage;
 import org.example.presonalprogecthabr.pages.MainPage;
-import org.example.presonalprogecthabr.pages.PopSciPage;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -26,8 +26,8 @@ public class AdminTest extends BaseTest {
         cp.clickAdminElement();
 
         ap = new AdminPage(getDriver());
-
     }
+
     @Test
     @DisplayName("#11. The entered text will disappear after clicking the 'Title' element")
     public void searchFieldText() {
