@@ -9,7 +9,7 @@ The project uses 21 Java version.
 In order to run the ALL tests is necessary input a command into the terminal:
 - **./mvnw clean test**  OR **mvn clean test**
 
-In order to run one of the test's class(such tests for the pages as the Main page, the PopSci page, Admin page and Sign up page ) is necessary input a command into the terminal:
+In order to run one of the test's class(such tests for the pages as the Main page, the PopSci page, Admin page and Sign up page) is necessary input a command into the terminal:
 - **./mvnw clean test -Dtest=<Input the name of the test's class>** 
 
   For instance: **./mvnw clean test -Dtest=PopSciTest**
